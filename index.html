@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafika Komputer</title>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="helper.js"></script>
+    <script type="text/javascript" src="IOHandler.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: blue; /* Warna background halaman agar canvas terlihat */
+    
+        }
+    </style>
+</head>
+<body onload="main()">
+    
+   <canvas id="myCanvas" style="border: 2px solid white;" width="1000px" height="800px">
+
+    <script id="vertexShaderCode" type="notjs">
+        attribute vec3 aPosition;
+        attribute vec3 aColor;
+        varying vec3 vColor;
+        uniform mat4 uFormMatrix;
+        void main(){
+            vColor = aColor;
+            gl_Position = uFormMatrix * vec4(aPosition, 1.0);
+        }
+    </script>
+</body>
+</html>
